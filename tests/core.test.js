@@ -17,3 +17,13 @@ test('HTTP和业务错误返回安全提示',async()=>{
  await assert.rejects(requestJSON('https://example.test',undefined,async()=>({ok:false,status:401})),/401/);
  await assert.rejects(requestJSON('https://example.test',undefined,async()=>({ok:true,json:async()=>({success:false})})),/接口/);
 });
+test('所有电影分类及分页只推荐2010年起上映的作品，剧集不限制年份',()=>{
+ for(const category of ['war','scifi','action','top']){
+  for(const page of [1,2])assert.equal(discoverParams(category,'movie',page)['primary_release_date.gte'],'2010-01-01');
+  assert.equal(discoverParams(category,'tv',1)['primary_release_date.gte'],undefined);
+ }
+});
+test('搜索结果保留2010年以前的电影',()=>{
+ const classic={id:278,media_type:'movie',release_date:'1994-09-23'};
+ assert.deepEqual(mediaResults([classic]),[classic]);
+});
