@@ -1,4 +1,8 @@
 # MovieFinder V1.0
+
+在线使用：[MovieFinder](https://5huji.github.io/moviefinder/) · [GitHub 源码](https://github.com/5huji/moviefinder)
+
+已于2026-10-15启用 GitHub Pages：main 分支、根目录、强制 HTTPS。
 原生 HTML/CSS/JavaScript 静态影视发现工具。无框架、无后端、无数据库、无运行依赖；按已确认需求使用 Ponytail 最小完整实现规则开发。
 
 ## 本地使用
@@ -27,7 +31,7 @@ python3 -m http.server 8765
 
 ## API 配置与风险
 用户提供的两个 Key 已按授权嵌入 core.js。静态前端 Key 对访问者可见，私有仓库也不能隐藏浏览器中的 Key；不要认为这是机密存储。需要隐藏时再改为后端代理，本版不引入后端。
-免费接口存在配额与网络可达性限制；OMDb 未收录、超额或授权失效时会显示暂无。浏览器需能访问 api.themoviedb.org、image.tmdb.org 和 www.omdbapi.com。
+免费接口存在配额与网络可达性限制；OMDb 未收录、超额或授权失效时会显示暂无。浏览器需能访问 api.themoviedb.org、image.tmdb.org 和 `www.omdbapi.com`。
 
 ## 测试
 Node.js 20+（仅测试需要）：
