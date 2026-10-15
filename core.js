@@ -2,6 +2,7 @@ const TMDB_KEY='af41952aa1ec31eea3afb84d2749d617';
 const OMDB_KEY='e92fb359';
 export function discoverParams(category,type,page){
  const p={sort_by:'vote_average.desc','vote_count.gte':type==='movie'?500:200,include_adult:false,page};
+ if(type==='movie')p['primary_release_date.gte']='2010-01-01';
  const genres={war:[10752,10768],scifi:[878,10765],action:[28,10759]};
  if(genres[category])p.with_genres=genres[category][type==='movie'?0:1];
  if(category==='american'||category==='british'){p.with_origin_country=category==='american'?'US':'GB';p.with_original_language='en';}

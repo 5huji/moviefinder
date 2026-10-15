@@ -15,7 +15,7 @@ function updateControls(){
  $('#types').hidden=!!state.query||['american','british'].includes(state.category);
  $('#list-title').textContent=state.query?`“${state.query}” 的搜索结果`:labels[state.category];
  $('#list-kicker').textContent=state.query?'SEARCH RESULTS':state.type==='movie'?'THE BEST OF CINEMA':'THE BEST OF TELEVISION';
- $('#list-note').textContent=state.query?'电影与剧集 · 按搜索相关度排列':`TMDB 评分从高到低 · 至少 ${state.type==='movie'?500:200} 人评分${['american','british'].includes(state.category)?' · 英语剧集，按制作地区筛选':''}`;
+ $('#list-note').textContent=state.query?'电影与剧集 · 按搜索相关度排列':`TMDB 评分从高到低${state.type==='movie'?' · 2010年起上映':''} · 至少 ${state.type==='movie'?500:200} 人评分${['american','british'].includes(state.category)?' · 英语剧集，按制作地区筛选':''}`;
 }
 async function load(reset=true){
  listController?.abort();const controller=new AbortController();listController=controller;
